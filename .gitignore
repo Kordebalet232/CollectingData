@@ -131,3 +131,6 @@ dmypy.json
 test_folder
 test.html
 test.pdf
+test.doc
+test1.docx
+test2.docx

@@ -4,7 +4,8 @@ from pdfminer.high_level import extract_text
 import pdfminer
 from pdfminer.image import ImageWriter
 from pdfminer.high_level import extract_pages
-
+import docx
+import docx2txt
 
 def getTextAndLinks(link):   #HTML
     req = requests.get(link)
@@ -47,5 +48,19 @@ def getTextAndImagesFromPDF(filepath, save_im_to):  #PDF
         save_images_from_page(page, save_im_to)
     return text
 
-text = getTextAndImagesFromPDF("test.pdf", "test_floder")
-print(text)
+# text = getTextAndImagesFromPDF("test.pdf", "test_folder")
+# print(text)
+
+def getFromDocx(path):
+    doc = docx.Document(path)
+    tables = []
+    for table in doc.tables:
+        tables.append(table)
+    text = docx2txt.process(path, "images")
+    return text, tables
+
+
+
+# text, tables = getFromDocx("test1.docx")
+# print(text)
+# print(tables)
