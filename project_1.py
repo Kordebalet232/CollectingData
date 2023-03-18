@@ -22,9 +22,11 @@ def getTextAndLinks(link):   #HTML
     text = soup.get_text(separator="/n")
     return links, text
 
-# # links, text = getTextAndLinks("https://mail.ru/")
-# # print(links)
-# # print(text)
+
+links, text = getTextAndLinks("https://pmpu.space")
+print(links)
+# print(text)
+
 
 def get_image(layout_object):
     if isinstance(layout_object, pdfminer.layout.LTImage):
@@ -48,7 +50,7 @@ def getTextAndImagesFromPDF(filepath, save_im_to):  #PDF
         save_images_from_page(page, save_im_to)
     return text
 
-# text = getTextAndImagesFromPDF("test.pdf", "test_folder")
+# text = getTextAndImagesFromPDF("test2.pdf", "test_folder")
 # print(text)
 
 def getFromDocx(path):
@@ -61,6 +63,6 @@ def getFromDocx(path):
 
 
 
-# text, tables = getFromDocx("test1.docx")
+# text, tables = getFromDocx("test_docx.docx")
 # print(text)
 # print(tables)
