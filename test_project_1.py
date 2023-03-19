@@ -16,3 +16,19 @@ def testgetTextAndImagesFromPDF(filepath, save_im_to, expected_result):
 @pytest.mark.parametrize("path, expected_result", [('testDocx.docx', "Hi! How are you? What's up?")])
 def testgetFromDocx(path, expected_result):
     assert getFromDocx(path)[0] == expected_result
+
+s = """Привет! 
+Как дела?
+
+
+Что делаешь? Я тестирую Docx-документы! 
+
+№;%::?@#$$%&&&*"""
+
+# print(s)
+
+@pytest.mark.parametrize("path, expected_result", [('testDocxRussian.docx', s)])
+def testgetFromDocx(path, expected_result):
+    print(getFromDocx(path)[0])
+    assert getFromDocx(path)[0] == expected_result
+
